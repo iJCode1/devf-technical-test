@@ -1,9 +1,12 @@
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const [navState, setNavState] = useState(true)
+
   return (
     <div className="App">
-      <div className="hello">Hello world</div>
+      <Navbar navState={navState} setNavState={setNavState} />
     </div>
   );
 }
