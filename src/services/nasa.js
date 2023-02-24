@@ -18,20 +18,18 @@ async function fetchWrapper(url) {
 
 export async function getApod() {
   return fetchWrapper(
-    `${import.meta.env.VITE_BASE_API}/apod?api_key=${
-      import.meta.env.VITE_NASA_API_KEY
-    }`
+    `https://api.nasa.gov/planetary/apod?api_key=uYoVhimIOCAajsEf4MinIUeqaVfofsG9F31pBk32`
   );
 }
 
 export async function getMars(){
   return fetchWrapper(
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=${import.meta.env.VITE_NASA_API_KEY}&feedtype=json&ver=1.0`
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=uYoVhimIOCAajsEf4MinIUeqaVfofsG9F31pBk32&feedtype=json&ver=1.0`
   );
 }
 
 export async function getCME() {
   return fetchWrapper(
-    `https://api.nasa.gov/DONKI/CMEAnalysis?startDate=2016-09-01&endDate=2016-09-30&mostAccurateOnly=true&speed=500&halfAngle=30&catalog=ALL&api_key=${import.meta.env.VITE_NASA_API_KEY}`
+    `https://api.nasa.gov/DONKI/CMEAnalysis?startDate=2016-09-01&endDate=2016-09-30&mostAccurateOnly=true&speed=500&halfAngle=30&catalog=ALL&api_key=uYoVhimIOCAajsEf4MinIUeqaVfofsG9F31pBk32`
   );
 }
