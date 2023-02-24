@@ -7,7 +7,7 @@ const ContactStyled = styled.div`
 
 function Contact() {
   return (
-    <ContactStyled>
+    <ContactStyled id='contacto'>
         <Footer />
     </ContactStyled>
   )
