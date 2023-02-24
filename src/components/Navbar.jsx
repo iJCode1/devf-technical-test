@@ -123,8 +123,8 @@ function Navbar({ navState, setNavState }) {
 
         <ul className="list2" onClick={handleClick}>
           <li className="item">
-            <a className="link" href="#link1">
-              link1
+            <a className="link" href="#apod">
+              APOD
             </a>
           </li>
           <li className="item">
