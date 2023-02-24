@@ -4,12 +4,14 @@ import Cme from "./components/Cme";
 import Contact from "./components/Contact";
 import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
-import { getApod, getCME } from "./services/nasa";
+import { getApod, getCME, getMars } from "./services/nasa";
+import Mars from "./components/Mars";
 
 function App() {
   const [navState, setNavState] = useState(true);
   const [apod, setApod] = useState({});
   const [cme, setCme] = useState({});
+  const [mars, setMars] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,6 +21,16 @@ function App() {
         return;
       }
       setApod(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    getMars().then((data, isError)=> {
+      if(isError) {
+        console.log('Error')
+        return;
+      }
+      setMars(data);
     });
   }, []);
 
@@ -41,6 +53,7 @@ function App() {
     <div className="App">
       <Navbar navState={navState} setNavState={setNavState} />
       <Apod {...apod} />
+      <Mars {...mars} />
       <Cme {...cme} />
       <Contact />
     </div>

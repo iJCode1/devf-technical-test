@@ -128,13 +128,13 @@ function Navbar({ navState, setNavState }) {
             </a>
           </li>
           <li className="item">
-            <a className="link" href="#cme">
-              CME
+            <a className="link" href="#mars">
+              Mars
             </a>
           </li>
           <li className="item">
-            <a className="link" href="#link3">
-              link3
+            <a className="link" href="#cme">
+              CME
             </a>
           </li>
           <li className="item">
