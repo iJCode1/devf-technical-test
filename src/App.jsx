@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import Apod from "./components/Apod";
+import Cme from "./components/Cme";
 import Contact from "./components/Contact";
 import Loading from "./components/Loading";
 import Navbar from "./components/Navbar";
-import { getApod } from "./services/nasa";
+import { getApod, getCME } from "./services/nasa";
 
 function App() {
   const [navState, setNavState] = useState(true);
   const [apod, setApod] = useState({});
+  const [cme, setCme] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,6 +19,16 @@ function App() {
         return;
       }
       setApod(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    getCME().then((data, isError)=> {
+      if(isError) {
+        console.log('Error')
+        return;
+      }
+      setCme(data);
       setLoading(false);
     });
   }, []);
@@ -29,6 +41,7 @@ function App() {
     <div className="App">
       <Navbar navState={navState} setNavState={setNavState} />
       <Apod {...apod} />
+      <Cme {...cme} />
       <Contact />
     </div>
   );
